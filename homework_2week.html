@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+
+        * {
+            font-family: 'Do Hyeon', sans-serif;
+            font-family: 'Jua', sans-serif;
+
+        }
+
+        .wrap {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .item-info {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1, h5 {
+            display: inline;
+        }
+
+        img {
+            display: block;
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            margin-top: 10px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .order {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        function Order() {
+            if (isAlright()) {
+                swal("It's ordered", '', 'success')
+            }
+        }
+
+
+        function cellRegex(str) {
+            let regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+            return regExp.test(str)
+        }
+
+        function pureNum(str) {
+            let regExp = /^\d+$/;
+            console.log(regExp.test(str.trim()))
+            return regExp.test(str.trim())
+        }
+
+
+        function isAlright() {
+            let HP = $('#HP').val()
+            let name = $('#name').val()
+            let add = $('#address').val()
+            let quantity = $('#quantity option:selected').val()
+            let money = $("#do").val()
+
+            if (name.trim() === '') {
+                swal('Error', "Input the customer's name!!", 'error')
+                return false;
+            } else if (quantity === 'Choose...') {
+                swal('Error', "Select the quantity ", 'error')
+                return false;
+            } else if (add.trim() === '') {
+                swal('Error', "input the address of the customer", 'error')
+                return false;
+            } else if (!cellRegex(HP)) {
+                swal('Error', 'input your phone number correctly including -', 'error')
+                return false;
+            } else if (!pureNum(money)) {
+                swal('Error', 'Only input number in the Donation form!', 'error')
+                return false;
+            }
+            return true
+        }
+
+
+    </script>
+
+    <title>Sustainable Future</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand text-light" href="#">Partnership for Sustainable Development</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse ml-3" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-light" href="#">News and media <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="#">Apply</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Missions
+                </a>
+                <div class="dropdown-menu text-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item " href="#">Peace</a>
+                    <a class="dropdown-item" href="#">Dignity</a>
+                    <a class="dropdown-item" href="#">equality</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 text-light" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+
+<div class="wrap">
+
+
+    <img src="http://asdun.org/wp-content/uploads/2018/09/sdgslogo-640x495.png" alt="지속가능한 목표">
+
+    <div class="item-info"><h1>SDGs</h1>
+        <h5>Accomplish The Humanity / per a goal</h5>
+
+        <p>To keep peace and make better and bright future we should stick together. Please keep this world By follwoing
+            17
+            Sustainable Development Goals</p>
+    </div>
+
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="name">Customer name</label>
+        </div>
+        <input type="text" class="form-control" id='name' aria-label="Sizing example input" placeholder="GilDong Hong"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="quantity">Quantity</label>
+        </div>
+        <select class="custom-select" id="quantity">
+            <option selected>Choose...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="address">Address</label>
+        </div>
+        <input type="text" class="form-control" id="address" placeholder="Yangchoen gu Seoul city"
+               aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="HP">H.P</label>
+        </div>
+        <input type="text" class="form-control" placeholder="010-0000-0000" id="HP" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="do">Donation</label>
+        </div>
+        <input type="text" class="form-control" value="0" default-value id="do" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <div class="order">
+        <button type="button" class="btn btn-primary" onclick="Order()">Order</button>
+    </div>
+
+
+</div>
+
+</body>
+</html>
