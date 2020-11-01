@@ -1,0 +1,40 @@
+
+* {
+    /*font-family: 'Do Hyeon', sans-serif;*/
+    font-family: 'Jua', sans-serif;
+
+}
+
+.wrap {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.item-info {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+h1, h5 {
+    display: inline;
+}
+
+img {
+    display: block;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    margin-top: 10px;
+    background-position: center;
+    background-size: cover;
+}
+
+.order {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#customerList {
+    margin-top: 20px;
+}
+
