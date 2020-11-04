@@ -13,4 +13,4 @@
 2. Description : 
 3. Reference sites, APIs : not found yet / [TourAPI 3.0](http://api.visitkorea.or.kr/main.do)
  
-> I hasn't gathered useful sites yet!.
+> Now I can catch up sparta curriculum 
